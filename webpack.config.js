@@ -3,11 +3,11 @@ const webpack = require("webpack");
 
 module.exports = (env, argv) => ({
   mode: argv.mode === "development" ? "development" : "production",
-  entry: "./src/index.ts",
   devtool: argv.mode === "development" ? "inline-source-map" : false,
+  entry: "./src/index.ts",
   output: {
-    path: path.resolve(__dirname, "public/js"),
-    publicPath: "/js",
+    path: path.resolve(__dirname, "public/"),
+    publicPath: "/",
     filename: "index.js",
   },
   module: {
@@ -16,7 +16,14 @@ module.exports = (env, argv) => ({
         test: /\.ts?$/,
         use: "ts-loader",
         include: [path.resolve(__dirname, "src")],
-        exclude: /node_modules/,
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "asset/[hash][ext]",
+          publicPath: "/",
+        },
       },
     ],
   },
