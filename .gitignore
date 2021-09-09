@@ -1,1 +1,4 @@
 /node_modules
+
+/public/asset
+/public/index.js

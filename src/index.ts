@@ -26,7 +26,6 @@ k.scene("game", () => {
   let scoreData = {
     value: 0,
     update() {
-      console.log("A");
       scoreLabel.text = this.value;
     },
     get score() {
