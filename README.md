@@ -27,6 +27,8 @@
 
 Esse repositório é um pequeno jogo. Construído com o objetivo de experimentar a biblioteca Kaboomjs.
 
+[Link beta](https://james-supergame.netlify.app/);
+
 ### Construído com
 
 O projeto foi construído utilizando
