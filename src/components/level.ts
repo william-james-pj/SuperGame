@@ -2,20 +2,20 @@ import { k } from "./kaboom";
 
 const levels = [
   "=======K R       W  w  |       W    w                ",
-  "   w            rQ  w  |     5 W    w                ",
-  "   w           W k=====K       W    w   R            ",
+  "   w            rQ__w  |     5 W    w                ",
+  "   w           W k=====K       W____w   R            ",
   "   qr        R W    w    R  rrrQ    qrr              ",
   "   ç w5  rr    W    w      Wp        & w             ",
   "     w  W  w   W    w 5    WP        : qrr           ",
   "     w  W  qrrrQ    qrrrrrrQ         V   çw R        ",
   "     qrrQ    pç       & & ç               w          ",
   "      P      P        : :                 w          ",
-  "                      : v                 qrrr       ",
-  "    O                 z          _                   ",
-  " a  13     o         xZX                             ",
-  " ;o 46  12223      ! c~C      e      122             ",
-  "222246  4   6      ;        123     O4               ",
-  "  5 46  4 5 6On 1223    E  o4 6   e1223              ",
+  "       c       c      : v                 qrrr       ",
+  "    O           c     z              a               ",
+  " a  13     o     c   xZX       c     ;               ",
+  " ;o 46  12223      ! b~B      e      122             ",
+  "222246  4   6   u  ;        123     O4               ",
+  "  5 46__4 5 6On 1223   cE  o4 6   e1223              ",
   "    46===<  12224  6    E1224 122224 56              ",
   "    46  4|  45  4  6     45 4 4    4  6              ",
   "5   46  4|  4  o4 56eeeee4  4 45   4  6              ",
@@ -47,12 +47,13 @@ export function Level() {
     "|": [k.sprite("tiles", { frame: 247 })],
     k: [k.sprite("tiles", { frame: 267 })],
     K: [k.sprite("tiles", { frame: 269 })],
-    _: [k.sprite("tiles", { frame: 329 }), k.rotate(4)],
+    _: [k.sprite("tiles", { frame: 329 }), k.rotate(1.57)],
 
     p: [k.sprite("tiles", { frame: 19 })], //Plantas
     P: [k.sprite("tiles", { frame: 39 })],
     o: [k.sprite("tiles", { frame: 37 })],
     O: [k.sprite("tiles", { frame: 38 })],
+    u: [k.sprite("tiles", { frame: 54 })],
 
     ç: [k.sprite("tiles", { frame: 166 })],
 
@@ -76,16 +77,18 @@ export function Level() {
     x: [k.sprite("tiles", { frame: 24 })],
     Z: [k.sprite("tiles", { frame: 25 })],
     X: [k.sprite("tiles", { frame: 26 })],
-    c: [k.sprite("tiles", { frame: 44 }), k.solid()],
+    b: [k.sprite("tiles", { frame: 44 }), k.solid()],
     "~": [k.sprite("tiles", { frame: 45 }), k.solid()],
-    C: [k.sprite("tiles", { frame: 46 }), k.solid()],
+    B: [k.sprite("tiles", { frame: 46 }), k.solid()],
 
     v: [k.sprite("tiles", { frame: 6 })],
     V: [k.sprite("tiles", { frame: 43 })],
 
     n: [k.sprite("tiles", { frame: 164 }), k.solid()],
 
-    e: [k.sprite("tiles", { frame: 183 }), k.solid()],
+    e: [k.sprite("tiles", { frame: 183 }), "thorns", k.solid()],
+
+    c: [k.sprite("tiles", { frame: 1 }), "coin", k.solid()],
 
     any() {
       return [];

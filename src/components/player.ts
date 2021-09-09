@@ -2,9 +2,16 @@ import { k } from "./kaboom";
 
 const MOVE_SPEED = 100;
 const JUMP_FORCE = 250;
+const FALL_DEATH = 400;
 const SCALE = 1;
 
-export function player() {
+type PlayerProps = {
+  value: number;
+  score: number;
+  update: () => void;
+};
+
+export function player(item: PlayerProps) {
   const player = k.add([
     k.sprite("player", {
       animSpeed: 0.1,
@@ -15,6 +22,20 @@ export function player() {
     k.body(),
     k.scale(SCALE),
   ]);
+
+  player.collides("thorns", (t: any) => {
+    player.play("death");
+    k.go("lose", { score: item.score });
+  });
+
+  player.collides("coin", (c: any) => {
+    k.destroy(c);
+    item.score = item.score + 1;
+  });
+
+  player.action(() => {
+    if (player.pos.y >= FALL_DEATH) k.go("lose", { score: item.score });
+  });
 
   k.keyPress("left", () => {
     player.scale.x = -SCALE;
